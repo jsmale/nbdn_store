@@ -76,12 +76,14 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\LogSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
     <Compile Include="web\StringContainsCommandNameSpecs.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawHandlerSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />
+    <Compile Include="web\UrlHelperSpecs.cs" />
     <Compile Include="web\ViewFactorySpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
     <Compile Include="web\ViewProductSpecs.cs" />

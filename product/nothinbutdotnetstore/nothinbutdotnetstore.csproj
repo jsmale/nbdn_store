@@ -61,6 +61,9 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\Log.cs" />
+    <Compile Include="infrastructure\Logger.cs" />
+    <Compile Include="infrastructure\LoggerFactory.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
@@ -83,6 +86,7 @@
     </Compile>
     <Compile Include="web\core\DefaultWebCommand.cs" />
     <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\helpers\Url.cs" />
     <Compile Include="web\core\MissingWebCommand.cs" />
     <Compile Include="web\core\PageFactory.cs" />
     <Compile Include="web\core\RawHandler.cs" />
