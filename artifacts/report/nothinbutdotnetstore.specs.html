@@ -107,15 +107,18 @@ div.supplement {
   </style>
 </head>
 <body>
-  <ul class="prev-next">
+  <ul class="prev-next"><li class="failure">
+      <a href="#9">Go to first failed specification &dArr;</a>
+    </li>
   </ul>
 <h1>
     nothinbutdotnetstore.specs
 </h1>
 <h2 class="count">
-  7 concerns,
-  9 contexts,
-  10 specifications
+  8 concerns,
+  10 contexts,
+  11 specifications,
+    <span class="failure">1 failure</span>
 </h2>
 
   <hr/>
@@ -238,7 +241,7 @@ div.supplement {
 </h3>
 <h4 class="count">
   1 specification
-</h4><ul><li class="spec"><a name="9">should make the determination by using its request criteria</a>
+</h4><ul><li class="spec"><a name="10">should make the determination by using its request criteria</a>
 
 
 
@@ -251,7 +254,7 @@ div.supplement {
 </h3>
 <h4 class="count">
   1 specification
-</h4><ul><li class="spec"><a name="10">should delegate the processing to an application specific command</a>
+</h4><ul><li class="spec"><a name="11">should delegate the processing to an application specific command</a>
 
 
 
@@ -289,6 +292,43 @@ div.supplement {
   1 specification
 </h4><ul><li class="spec"><a name="8">should tell the response engine to display the main departments</a>
 
+
+
+
+ 
+
+          </li>
+        </ul><h2 class="concern">
+  ViewSubDepartments specifications
+</h2>
+<h3 class="count">
+  1 context, 1 specification
+</h3><h3 class="context">
+  when vieing the list of sub departments in a department
+</h3>
+<h4 class="count">
+  1 specification
+</h4><ul><li class="spec"><a name="9">should tell the response engine to display the sub departments of a department</a>
+
+  <div class="failure">
+    &lArr; FAILED
+    <ul class="prev-next">
+      <li class="failure">
+      </li>
+      <li class="failure">
+      </li>
+    </ul>
+  </div>
+  <p class="exception_type">
+    ExpectationViolationException
+  </p>
+  <pre class="exception_message">Rhino.Mocks.Exceptions.ExpectationViolationException: ResponseEngine.display&lt;System.Collections.Generic.IEnumerable`1[nothinbutdotnetstore.model.Department]&gt;(System.Collections.Generic.List`1[nothinbutdotnetstore.model.Department]); Expected #1..2147483647, Actual #0.
+   at Rhino.Mocks.RhinoMocksExtensions.AssertWasCalled[T](T mock, Action`1 action, Action`1 setupConstraints)
+   at Machine.Specifications.DevelopWithPassion.Rhino.VoidMethodCallOccurance`1..ctor(T mock, Action`1 action) in c:\Users\jp\repositories\github\machine.specifications\Source\Machine.Specifications.DevelopWithPassion.Rhino\VoidMethodCallOccurance.cs:line 15
+   at Machine.Specifications.DevelopWithPassion.Rhino.RhinoMocksExtensions.received[T](T mock, Action`1 item) in c:\Users\jp\repositories\github\machine.specifications\Source\Machine.Specifications.DevelopWithPassion.Rhino\RhinoMocksExtensions.cs:line 20
+   at nothinbutdotnetstore.specs.web.ViewSubDepartmentsSpecs.when_vieing_the_list_of_sub_departments_in_a_department.&lt;.ctor&gt;b__4() in c:\repositories\github\nbdn_store\product\nothinbutdotnetstore.specs\web\ViewSubDepartmentSpecs.cs:line 38
+   at Machine.Specifications.Model.Specification.InvokeSpecificationField() in c:\Users\jp\repositories\github\machine.specifications\Source\Machine.Specifications\Model\Specification.cs:line 75
+   at Machine.Specifications.Model.Specification.Verify() in c:\Users\jp\repositories\github\machine.specifications\Source\Machine.Specifications\Model\Specification.cs:line 53</pre>
 
 
 

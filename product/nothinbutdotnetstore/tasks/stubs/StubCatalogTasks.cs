@@ -11,5 +11,10 @@ namespace nothinbutdotnetstore.tasks.stubs
         {
             return Enumerable.Range(1, 1000).Select(x => new Department{name = x.ToString("Department 0")});
         }
+
+        public IEnumerable<Department> get_all_sub_departments(Department department)
+        {
+            return Enumerable.Range(1, 100).Select(x => new Department { name = x.ToString("Sub Department 0") });
+        }
     }
 }
