@@ -24,11 +24,12 @@ namespace nothinbutdotnetstore.specs.web
                 catalog_tasks = the_dependency<CatalogTasks>();
                 response_engine = the_dependency<ResponseEngine>();
                 request = an<Request>();
-
+                parent_department = new Department();
                 sub_departments = new List<Department>();
                 
-                catalog_tasks.Stub(x => x.get_all_sub_departments(new Department() 
-                    { department_id = 1, name = "MD1"})).Return(sub_departments);
+                catalog_tasks.Stub(x => x.get_all_sub_departments_in(parent_department)).Return(sub_departments);
+
+                provide_a_basic_sut_constructor_argument(parent_department);
             };
 
             Because b = () =>
@@ -41,6 +42,7 @@ namespace nothinbutdotnetstore.specs.web
             static IEnumerable<Department> sub_departments;
             static Request request;
             static CatalogTasks catalog_tasks;
+            static Department parent_department;
         }
     }
 }
