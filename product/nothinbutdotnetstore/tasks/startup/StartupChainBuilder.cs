@@ -6,8 +6,8 @@ namespace nothinbutdotnetstore.tasks.startup
 {
     public class StartupChainBuilder
     {
-        readonly StartupCommandFactory startup_command_factory;
-        readonly IList<StartupCommand> startup_commands;
+        StartupCommandFactory startup_command_factory;
+        IList<StartupCommand> startup_commands;
 
         public StartupChainBuilder(StartupCommandFactory startup_command_factory, IList<StartupCommand> startup_commands,
             Type first_command_type)
