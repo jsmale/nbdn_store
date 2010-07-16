@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.tasks.startup
         public void run()
         {
             Container container = new BasicContainer(factories);
-            factories.Add(typeof(LoggerFactory), new BasicDependencyFactory(() => new TextWriterLoggerFactory()));
+            factories.Add(typeof(LoggerFactory),new AutoWiringFactory(null,container,typeof(TextWriterLoggerFactory)));
             IOC.factory_resolver = () => container;
         }
     }

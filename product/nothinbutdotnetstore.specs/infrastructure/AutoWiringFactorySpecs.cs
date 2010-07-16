@@ -32,7 +32,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
                     typeof(OurTypeWithDependencies).GetConstructors().OrderByDescending(x => x.GetParameters().Count()).
                         First();
 
-                constructor_selection_strategy.Stub(x => x.get_applicable_constructor()).Return(the_constructor);
+                constructor_selection_strategy.Stub(x => x.get_applicable_constructor_on(typeof(OurTypeWithDependencies))).Return(the_constructor);
 
                 provide_a_basic_sut_constructor_argument(typeof(OurTypeWithDependencies));
             };
