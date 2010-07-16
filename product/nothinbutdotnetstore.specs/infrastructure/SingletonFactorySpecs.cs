@@ -63,18 +63,6 @@ namespace nothinbutdotnetstore.specs.infrastructure
                 return new OurClass();
             }
         }
-
-        public class OurClass
-        {
-        }
-
-        public class OurFactory : DependencyFactory
-        {
-            public object create()
-            {
-                return new OurClass();
-            }
-        }
     }
 
     class OurClass
