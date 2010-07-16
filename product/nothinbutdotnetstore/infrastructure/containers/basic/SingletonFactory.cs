@@ -1,20 +1,19 @@
-using System;
-
 namespace nothinbutdotnetstore.infrastructure.containers.basic
 {
     public class SingletonFactory : DependencyFactory
     {
-        private readonly DependencyFactory _dependencyFactory;
+        DependencyFactory dependency_factory;
 
-        public SingletonFactory(DependencyFactory dependencyFactory) {
-            _dependencyFactory = dependencyFactory;
+        object instance;
+
+        public SingletonFactory(DependencyFactory dependency_factory)
+        {
+            this.dependency_factory = dependency_factory;
         }
 
-        private object instance;
-
-        public object create() {
-            if (instance != null) instance = _dependencyFactory.create();
-            return instance;
+        public object create()
+        {
+            return instance ?? (instance = dependency_factory.create());
         }
     }
 }
