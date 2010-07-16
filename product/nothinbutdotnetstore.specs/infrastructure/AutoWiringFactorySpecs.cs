@@ -8,6 +8,7 @@
  using nothinbutdotnetstore.infrastructure.containers.basic;
  using Rhino.Mocks;
  using Machine.Specifications.DevelopWithPassion.Extensions;
+ using System.Linq;
 
 namespace nothinbutdotnetstore.specs.infrastructure
  {   
@@ -32,14 +33,16 @@ namespace nothinbutdotnetstore.specs.infrastructure
                  container.Stub(x => x.an_instance_of(typeof(IDbConnection))).Return(the_connection);
                  container.Stub(x => x.an_instance_of(typeof(IDbCommand))).Return(the_command);
 
-                 Expression<Func<OurTypeWithDependencies>> item = () => new OurTypeWithDependencies(null,null);
-                 the_constructor = item.downcast_to<NewExpression>().Constructor;
+                 the_constructor = typeof(OurTypeWithDependencies).GetConstructors().OrderByDescending(x => x.GetParameters().Count()).
+                     First();
+
 
                  constructor_selection_strategy.Stub(x => x.get_applicable_constructor()).Return(the_constructor);
              };
 
              Because b = () =>
                  result = sut.create();
+
 
 
              It should_return_the_dependency_populated_with_all_of_its_container_resolved_dependencies = () =>
