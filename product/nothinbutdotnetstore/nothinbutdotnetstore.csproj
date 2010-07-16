@@ -87,6 +87,7 @@
     <Compile Include="tasks\startup\ConfigureCoreServices.cs" />
     <Compile Include="tasks\startup\ConfigureFrontController.cs" />
     <Compile Include="tasks\startup\ConfigureServiceLayer.cs" />
+    <Compile Include="tasks\startup\SingletonAttribute.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="tasks\startup\StartupChainBuilder.cs" />
