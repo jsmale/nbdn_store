@@ -23,6 +23,7 @@ namespace nothinbutdotnetstore.specs.tasks
                 first_command = new FirstCommand();
 
 
+                provide_a_basic_sut_constructor_argument(typeof(FirstCommand));
                 startup_command_factory.Stub(x => x.create_command_from(typeof(FirstCommand))).Return(first_command);
             };
 
