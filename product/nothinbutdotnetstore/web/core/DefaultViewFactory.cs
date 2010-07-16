@@ -1,4 +1,5 @@
 using System;
+	using System.Web.Compilation;
 
 namespace nothinbutdotnetstore.web.core
 {
