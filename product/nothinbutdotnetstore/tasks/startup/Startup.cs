@@ -26,22 +26,19 @@ namespace nothinbutdotnetstore.tasks.startup
 
         static void configure_service_layer(Dictionary<Type, DependencyFactory> factories)
         {
-            factories.Add(typeof(CatalogTasks), CreateFactory(new StubCatalogTasks()));
+            factories.Add(typeof(CatalogTasks), create_factory(new StubCatalogTasks()));
         }
 
         static void configure_front_controller(Dictionary<Type, DependencyFactory> factories)
         {
-            factories.Add(typeof(FrontController), CreateFactory(new DefaultFrontController(
+            factories.Add(typeof(FrontController), create_factory(new DefaultFrontController(
                                                                            new DefaultCommandRegistry(new StubFakeCommandSet())
                                                                            )));
 
-            factories.Add(typeof(RequestFactory), CreateFactory(new StubRequestFactory()));
+            factories.Add(typeof(RequestFactory), create_factory(new StubRequestFactory()));
 
-            //            var view_assembly_type =
-            //                Type.GetType("nothinbutdotnetstore.web.ui.views.DepartmentBrowser, nothinbutdotnetstore.web.ui");
-            var views = Assembly.GetCallingAssembly().GetTypes().Where(x => x.GetInterface("ViewFor`1") != null);
-            factories.Add(typeof(ResponseEngine), CreateFactory(new DefaultResponseEngine(
-                                                                          new DefaultViewFactory(new DefaultViewRegistry(views)))));
+            factories.Add(typeof(ResponseEngine), create_factory(new DefaultResponseEngine(
+                                                                          new DefaultViewFactory(new DefaultViewRegistry(null)))));
 
             DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;
         }
@@ -53,7 +50,7 @@ namespace nothinbutdotnetstore.tasks.startup
             IOC.factory_resolver = () => container;
         }
 
-        static SingletonFactory CreateFactory(object dependency)
+        static SingletonFactory create_factory(object dependency)
         {
             return new SingletonFactory(new BasicDependencyFactory(() => dependency));
         }
