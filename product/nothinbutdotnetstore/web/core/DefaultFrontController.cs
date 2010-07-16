@@ -1,5 +1,8 @@
+using nothinbutdotnetstore.tasks.startup;
+
 namespace nothinbutdotnetstore.web.core
 {
+    [Singleton]
     public class DefaultFrontController : FrontController
     {
         CommandRegistry command_registry;
