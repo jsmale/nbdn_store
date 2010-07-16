@@ -4,9 +4,11 @@ namespace nothinbutdotnetstore.specs.infrastructure
 {
     public static class FuncExtensions
     {
-        public static Func<object> cache_result(this Func<object> factory)
+        public static Func<T> cache_result<T>(this Func<T> factory)
         {
-            return factory;
+            object item = null;
+
+            return () => item ?? (item = factory());
         }
     }
 }
