@@ -18,28 +18,29 @@ namespace nothinbutdotnetstore.specs.tasks
         public class when_creating_a_command_and_it_has_the_required_constructor : concern
         {
             Establish c = () =>
-            {
                 factories = the_dependency<IDictionary<Type, DependencyFactory>>();
-            };
 
             Because b = () =>
                 result = sut.create_command_from(typeof(MyCommand));
 
-
-            It should_create_the_startup_command_and_provide_it_the_dictionary_of_factories =
-                () => { result.ShouldBeAn<MyCommand>().factories.ShouldEqual(factories); };
+            It should_create_the_startup_command_and_provide_it_the_dictionary_of_factories = () =>
+                result.ShouldBeAn<MyCommand>().factories.ShouldEqual(factories);
 
             static StartupCommand result;
             static IDictionary<Type, DependencyFactory> factories;
         }
 
-        public class MyCommand
+        public class MyCommand : StartupCommand
         {
             public IDictionary<Type, DependencyFactory> factories { get; set; }
 
             public MyCommand(IDictionary<Type, DependencyFactory> factories)
             {
                 this.factories = factories;
+            }
+
+            public void run()
+            {
             }
         }
     }
