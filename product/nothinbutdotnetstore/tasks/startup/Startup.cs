@@ -2,14 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Web;
 using System.Web.Compilation;
 using nothinbutdotnetstore.infrastructure.containers;
 using nothinbutdotnetstore.infrastructure.containers.basic;
-<<<<<<< HEAD
-=======
 using nothinbutdotnetstore.infrastructure.logging;
 using nothinbutdotnetstore.infrastructure.logging.simple;
->>>>>>> 394dd09fd7d598c22d108d5fb97b0b880bdb6c48
 using nothinbutdotnetstore.tasks.stubs;
 using nothinbutdotnetstore.web.core;
 using nothinbutdotnetstore.web.core.stubs;
@@ -27,39 +25,36 @@ namespace nothinbutdotnetstore.tasks.startup
             configure_service_layer(factories);
         }
 
-        static void configure_service_layer(Dictionary<Type, DependencyFactory> factories)
+        static DependencyFactory singleton(Func<object> factory)
         {
-            var catalog_tasks_factory =
-                new SingletonFactory(new BasicDependencyFactory(() => new StubCatalogTasks()));
-            factories.Add(typeof(CatalogTasks), catalog_tasks_factory);
+            return new SingletonFactory(new BasicDependencyFactory(factory));
         }
 
-        static void configure_front_controller(Dictionary<Type, DependencyFactory> factories)
+        static void configure_service_layer(IDictionary<Type, DependencyFactory> factories)
+        {
+            factories.Add(typeof(CatalogTasks), singleton(() => new StubCatalogTasks()));
+        }
+
+        static void configure_front_controller(IDictionary<Type, DependencyFactory> factories)
         {
             var front_controller_factory =
-                new SingletonFactory(new BasicDependencyFactory(() => new DefaultFrontController(
-                                                                    new DefaultCommandRegistry(new StubFakeCommandSet())
-                                                                    )));
+                singleton(() => new DefaultFrontController(new DefaultCommandRegistry(new StubFakeCommandSet())));
             factories.Add(typeof(FrontController), front_controller_factory);
 
-            var request_factory =
-                new SingletonFactory(new BasicDependencyFactory(() => new StubRequestFactory()));
-            factories.Add(typeof(RequestFactory), request_factory);
+            factories.Add(typeof(RequestFactory), singleton(() => new StubRequestFactory()));
 
-            //            var view_assembly_type =
-            //                Type.GetType("nothinbutdotnetstore.web.ui.views.DepartmentBrowser, nothinbutdotnetstore.web.ui");
-            var views = Assembly.GetCallingAssembly().GetTypes().Where(x => x.GetInterface("ViewFor`1") != null);
+            var views = Assembly.Load("nothinbutdotnetstore.web.ui").GetTypes().Where(x => x.GetInterface("ViewFor`1") != null);
             var response_engine_factory =
-                new SingletonFactory(new BasicDependencyFactory(() => new DefaultResponseEngine(
-                                                                    new DefaultViewFactory(new DefaultViewRegistry(views)))));
+                singleton(() => new DefaultResponseEngine(new DefaultViewFactory(new DefaultViewRegistry(views))));
             factories.Add(typeof(ResponseEngine), response_engine_factory);
             DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;
+            DefaultResponseEngine.context = () => HttpContext.Current;
         }
 
-        static void configure_core_services(Dictionary<Type, DependencyFactory> factories)
+        static void configure_core_services(IDictionary<Type, DependencyFactory> factories)
         {
             Container container = new BasicContainer(factories);
-            factories.Add(typeof(LoggerFactory),new BasicDependencyFactory(() => new TextWriterLoggerFactory()));
+            factories.Add(typeof(LoggerFactory), singleton(() => new TextWriterLoggerFactory()));
             IOC.factory_resolver = () => container;
         }
     }

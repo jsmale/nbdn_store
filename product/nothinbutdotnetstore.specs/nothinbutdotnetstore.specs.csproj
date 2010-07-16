@@ -104,10 +104,6 @@
     <Compile Include="web\WebCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\nothinbutdotnetstore.web.ui\nothinbutdotnetstore.web.ui.csproj">
-      <Project>{357983B7-2D2B-4044-951A-7004364F2549}</Project>
-      <Name>nothinbutdotnetstore.web.ui</Name>
-    </ProjectReference>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">
       <Project>{922EF2FE-820B-4ED5-9D64-7D716E135719}</Project>
       <Name>nothinbutdotnetstore</Name>

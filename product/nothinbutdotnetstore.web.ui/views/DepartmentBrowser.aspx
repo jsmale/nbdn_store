@@ -16,7 +16,7 @@ Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" MasterPageFile="S
                 <td>                     
                     <a href="<%=Url.for_command<ViewSubDepartments>()
                        .with_input_model(department)
-                       .with_parameter(x => x.id) %>"><%=department.name%></a>
+                       .with_parameter(x => x.id).get_url() %>"><%=department.name%></a>
                 </td>
             </tr>
 	    <%
