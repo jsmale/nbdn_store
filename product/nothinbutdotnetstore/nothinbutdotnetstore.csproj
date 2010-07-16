@@ -81,6 +81,7 @@
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="infrastructure\Command.cs" />
+    <Compile Include="tasks\startup\ChainStartupCommand.cs" />
     <Compile Include="tasks\startup\ConfigureCoreServices.cs" />
     <Compile Include="tasks\startup\ConfigureFrontController.cs" />
     <Compile Include="tasks\startup\ConfigureServiceLayer.cs" />
