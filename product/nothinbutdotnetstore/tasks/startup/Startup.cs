@@ -11,46 +11,42 @@ using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
-	public class Startup
-	{
-		static Dictionary<Type, DependencyFactory> factories  = new Dictionary<Type, DependencyFactory>();
-		public static void run()
-		{
-			configure_core_services(factories);
-			configure_front_controller(factories);
-			configure_service_layer(factories);
-		}
-		
-		private static void addToDict<TypeToRegister>(object creation)
-		{
-			factories.Add(typeof(TypeToRegister), create_factory(creation));
-		}
+    public class Startup
+    {
+        static Dictionary<Type, DependencyFactory> factories = new Dictionary<Type, DependencyFactory>();
 
-		private static void configure_service_layer(Dictionary<Type, DependencyFactory> factories)
-		{
-			addToDict<CatalogTasks>(new StubCatalogTasks());
-//			factories.Add(typeof (CatalogTasks), create_factory());
-		}
+        public static void run()
+        {
+            new ConfigureCoreServices(factories).run();
+            configure_front_controller(factories);
+            configure_service_layer(factories);
+        }
 
-		private static void configure_front_controller(Dictionary<Type, DependencyFactory> factories)
-		{
-			addToDict<FrontController>(new DefaultFrontController(new DefaultCommandRegistry(new StubFakeCommandSet())));
-			addToDict<RequestFactory>(new StubRequestFactory());
-			addToDict<ResponseEngine>(new DefaultResponseEngine(new DefaultViewFactory(new DefaultViewRegistry(null))));
+        static void add_to_factories<TypeToRegister>(object creation)
+        {
+            factories.Add(typeof(TypeToRegister), create_factory(creation));
+        }
 
-			DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;
-		}
+        static void configure_service_layer(Dictionary<Type, DependencyFactory> factories)
+        {
+            add_to_factories<CatalogTasks>(new StubCatalogTasks());
+        }
 
-		private static void configure_core_services(Dictionary<Type, DependencyFactory> factories)
-		{
-			Container container = new BasicContainer(factories);
-			factories.Add(typeof(LoggerFactory), new BasicDependencyFactory(() => new TextWriterLoggerFactory()));
-			IOC.factory_resolver = () => container;
-		}
+        static void configure_front_controller(Dictionary<Type, DependencyFactory> factories)
+        {
+            add_to_factories<FrontController>(
+                new DefaultFrontController(new DefaultCommandRegistry(new StubFakeCommandSet())));
+            add_to_factories<RequestFactory>(new StubRequestFactory());
+            add_to_factories<ResponseEngine>(
+                new DefaultResponseEngine(new DefaultViewFactory(new DefaultViewRegistry(null))));
 
-		private static SingletonFactory create_factory(object dependency)
-		{
-			return new SingletonFactory(new BasicDependencyFactory(() => dependency));
-		}
-	}
+            DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;
+        }
+
+
+        static SingletonFactory create_factory(object dependency)
+        {
+            return new SingletonFactory(new BasicDependencyFactory(() => dependency));
+        }
+    }
 }
