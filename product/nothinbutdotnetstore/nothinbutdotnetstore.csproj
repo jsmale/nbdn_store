@@ -62,8 +62,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\containers\basic\AutoWiringFactory.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
     <Compile Include="infrastructure\containers\basic\BasicDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\basic\ConstructorSelectionStrategy.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyCreationException.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactory.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactoryNotRegisteredException.cs" />
@@ -78,8 +80,12 @@
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
+    <Compile Include="infrastructure\Command.cs" />
     <Compile Include="tasks\startup\ConfigureCoreServices.cs" />
+    <Compile Include="tasks\startup\ConfigureFrontController.cs" />
+    <Compile Include="tasks\startup\ConfigureServiceLayer.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="tasks\startup\StartupCommand.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewSubDepartments.cs" />
