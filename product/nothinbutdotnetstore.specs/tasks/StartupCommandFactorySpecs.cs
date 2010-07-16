@@ -18,7 +18,10 @@ namespace nothinbutdotnetstore.specs.tasks
         public class when_creating_a_command_and_it_has_the_required_constructor : concern
         {
             Establish c = () =>
-                factories = the_dependency<IDictionary<Type, DependencyFactory>>();
+            {
+                factories = new Dictionary<Type, DependencyFactory>();
+                provide_a_basic_sut_constructor_argument(factories);
+            };
 
             Because b = () =>
                 result = sut.create_command_from(typeof(MyCommand));
