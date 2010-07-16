@@ -38,6 +38,8 @@ namespace nothinbutdotnetstore.specs.infrastructure
 
 
                  constructor_selection_strategy.Stub(x => x.get_applicable_constructor()).Return(the_constructor);
+
+                 provide_a_basic_sut_constructor_argument(typeof(OurTypeWithDependencies));
              };
 
              Because b = () =>
