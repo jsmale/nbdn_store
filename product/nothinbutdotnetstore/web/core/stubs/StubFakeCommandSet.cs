@@ -20,7 +20,7 @@ namespace nothinbutdotnetstore.web.core.stubs
             var random = new Random().Next(0, 2);
             if (now.Hour > 14 || (now.Hour == 14 && now.Minute > 30))
             {
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
             }
 
             yield return new DefaultWebCommand(x => !x.raw_command.Contains("?"),

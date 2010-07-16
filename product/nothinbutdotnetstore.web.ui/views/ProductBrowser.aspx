@@ -1,5 +1,5 @@
 <%@ MasterType VirtualPath="Store.master" %>
-<%@ Page Language="c#" AutoEventWireup="true" 
+<%@ Page Language="c#" AutoEventWireup="True" 
 Inherits="nothinbutdotnetstore.web.ui.views.ProductBrowser" MasterPageFile="Store.master" Codebehind="ProductBrowser.aspx.cs" %>
 
 

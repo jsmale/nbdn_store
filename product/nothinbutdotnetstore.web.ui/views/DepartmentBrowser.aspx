@@ -1,5 +1,5 @@
 <%@ MasterType VirtualPath="Store.master" %>
-<%@ Page Language="C#" AutoEventWireup="true" 
+<%@ Page Language="C#" AutoEventWireup="True" 
 Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" MasterPageFile="Store.master" Codebehind="DepartmentBrowser.aspx.cs" %>
 <%@ Import Namespace="nothinbutdotnetstore.model" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.application" %>
@@ -16,7 +16,7 @@ Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" MasterPageFile="S
                 <td>                     
                     <a href="<%=Url.for_command<ViewSubDepartments>()
                        .with_input_model(department)
-                       .with_parameter(x => x.id) %>"><%=department.name%></a>
+                       .with_parameter(x => x.id).get_url() %>"><%=department.name%></a>
                 </td>
             </tr>
 	    <%

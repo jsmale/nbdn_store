@@ -7,7 +7,7 @@ using nothinbutdotnetstore.infrastructure.logging.simple;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
-    public class ConfigureCoreServices
+    public class ConfigureCoreServices : StartupCommand
     {
         IDictionary<Type, DependencyFactory> factories;
 
