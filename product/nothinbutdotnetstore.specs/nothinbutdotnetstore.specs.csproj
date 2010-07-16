@@ -90,6 +90,7 @@
     <Compile Include="infrastructure\LogSpecs.cs" />
     <Compile Include="infrastructure\TextWriterLogSpecs.cs" />
     <Compile Include="tasks\StartupChainBuilderSpecs.cs" />
+    <Compile Include="tasks\StartupCommandFactorySpecs.cs" />
     <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
     <Compile Include="web\DefaultViewRegistrySpecs.cs" />

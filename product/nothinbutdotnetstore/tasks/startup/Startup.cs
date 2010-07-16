@@ -4,9 +4,9 @@ namespace nothinbutdotnetstore.tasks.startup
     {
         public static void run()
         {
-            //            Start.by<ConfiguringCoreServices>()
-            //                .followed_by<ConfigureFronController>()
-            //                .finish_by<ConfigureServiceLayer>();
+            Start.by<ConfigureCoreServices>()
+                .followed_by<ConfigureFrontController>()
+                .finish_by<ConfigureServiceLayer>();
         }
     }
 }
