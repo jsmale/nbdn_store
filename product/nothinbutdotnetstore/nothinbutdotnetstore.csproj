@@ -78,10 +78,12 @@
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
+    <Compile Include="infrastructure\NulloCommand.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="infrastructure\Command.cs" />
-    <Compile Include="tasks\startup\ChainStartupCommand.cs" />
+    <Compile Include="infrastructure\ChainedCommand.cs" />
+    <Compile Include="tasks\startup\CommandExtensions.cs" />
     <Compile Include="tasks\startup\ConfigureCoreServices.cs" />
     <Compile Include="tasks\startup\ConfigureFrontController.cs" />
     <Compile Include="tasks\startup\ConfigureServiceLayer.cs" />
