@@ -51,6 +51,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
             It should_return_the_same_instance_each_time = () =>
                 result.ShouldEqual(result2);
 
+
             static object result;
             static object result2;
         }
@@ -62,9 +63,9 @@ namespace nothinbutdotnetstore.specs.infrastructure
                 return new OurClass();
             }
         }
+    }
 
-        public class OurClass
-        {
-        }
+    class OurClass
+    {
     }
 }
