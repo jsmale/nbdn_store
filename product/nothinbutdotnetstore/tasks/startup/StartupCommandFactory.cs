@@ -6,4 +6,12 @@ namespace nothinbutdotnetstore.tasks.startup
     {
         StartupCommand create_command_from(Type command_type);
     }
+
+    public class DefaultStartupCommandFactory : StartupCommandFactory 
+    {
+        public StartupCommand create_command_from(Type command_type)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
