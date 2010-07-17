@@ -4,6 +4,7 @@ using System.Reflection;
 using nothinbutdotnetstore.infrastructure.containers;
 using nothinbutdotnetstore.infrastructure.containers.basic;
 using System.Linq;
+using nothinbutdotnetstore.infrastructure.extensions;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
@@ -36,12 +37,12 @@ namespace nothinbutdotnetstore.tasks.startup
         {
             var types = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(x => x.GetCustomAttributes(typeof(AttributeType), false).Length > 0);
-            foreach (var type in types)
+            types.each(type =>
             {
                 var interfaces = type.GetInterfaces();
                 var contract = (interfaces.Length > 0) ? interfaces[0] : type;
                 factories.Add(contract, factory(new GreedyConstructorSelectionStrategy(), IOC.get, type));
-            }
+            });
         }
     }
 }
