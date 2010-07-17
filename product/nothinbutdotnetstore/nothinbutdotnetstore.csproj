@@ -69,6 +69,7 @@
     <Compile Include="infrastructure\containers\basic\DependencyCreationException.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactory.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactoryNotRegisteredException.cs" />
+    <Compile Include="infrastructure\containers\basic\GreedyConstructorSelectionStrategy.cs" />
     <Compile Include="infrastructure\containers\basic\SingletonFactory.cs" />
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\IOC.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="tasks\startup\StartupChainBuilder.cs" />
     <Compile Include="tasks\startup\StartupCommand.cs" />
     <Compile Include="tasks\startup\StartupCommandFactory.cs" />
+    <Compile Include="tasks\startup\WireUpAttributedComponents.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewSubDepartments.cs" />
