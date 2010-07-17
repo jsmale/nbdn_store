@@ -12,7 +12,8 @@ namespace nothinbutdotnetstore.tasks.startup
 
     public class DefaultStartupCommandFactory : StartupCommandFactory 
     {
-        readonly IDictionary<Type, DependencyFactory> factories;
+        IDictionary<Type, DependencyFactory> factories;
+
 
         public DefaultStartupCommandFactory(IDictionary<Type, DependencyFactory> factories)
         {
