@@ -1,4 +1,6 @@
-using nothinbutdotnetstore.infrastructure.containers;
+using System;
+using System.Collections.Generic;
+using nothinbutdotnetstore.infrastructure.containers.basic;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
@@ -6,8 +8,10 @@ namespace nothinbutdotnetstore.tasks.startup
     {
         public static StartupChainBuilder by<Command>() where Command : StartupCommand
         {
-            return new StartupChainBuilder(IOC.get.an_instance_of<StartupCommandFactory>() 
-                                           , typeof(Command));
+            return new StartupChainBuilder(new DefaultStartupCommandFactory(
+                new Dictionary<Type, DependencyFactory>()),
+                new List<StartupCommand>(),
+                typeof(Command));
         }
     }
 }

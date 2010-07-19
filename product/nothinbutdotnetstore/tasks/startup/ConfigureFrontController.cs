@@ -33,11 +33,6 @@ namespace nothinbutdotnetstore.tasks.startup
         {
             var views = Assembly.Load("nothinbutdotnetstore.web.ui").GetTypes()
                 .Where(x => x.GetInterface("ViewFor`1") != null);
-            add_to_factories<FrontController>(
-                new DefaultFrontController(new DefaultCommandRegistry(new StubFakeCommandSet())));
-            add_to_factories<RequestFactory>(new StubRequestFactory());
-            add_to_factories<ResponseEngine>(
-                new DefaultResponseEngine(new DefaultViewFactory(new DefaultViewRegistry(views))));
 
             DefaultResponseEngine.context = () => HttpContext.Current;
             DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\BaseMapper.cs" />
     <Compile Include="infrastructure\containers\basic\AutoWiringFactory.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
     <Compile Include="infrastructure\containers\basic\BasicDependencyFactory.cs" />
@@ -69,15 +70,19 @@
     <Compile Include="infrastructure\containers\basic\DependencyCreationException.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactory.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyFactoryNotRegisteredException.cs" />
+    <Compile Include="infrastructure\containers\basic\GreedyConstructorSelectionStrategy.cs" />
     <Compile Include="infrastructure\containers\basic\SingletonFactory.cs" />
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\IOC.cs" />
+    <Compile Include="infrastructure\DefaultMap.cs" />
     <Compile Include="infrastructure\extensions\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
     <Compile Include="infrastructure\logging\Logger.cs" />
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
+    <Compile Include="infrastructure\Map.cs" />
+    <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\NulloCommand.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
@@ -88,11 +93,13 @@
     <Compile Include="tasks\startup\ConfigureFrontController.cs" />
     <Compile Include="tasks\startup\ConfigureServiceLayer.cs" />
     <Compile Include="tasks\startup\SingletonAttribute.cs" />
+    <Compile Include="tasks\startup\SomeCommand.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\Startup.cs" />
     <Compile Include="tasks\startup\StartupChainBuilder.cs" />
     <Compile Include="tasks\startup\StartupCommand.cs" />
     <Compile Include="tasks\startup\StartupCommandFactory.cs" />
+    <Compile Include="tasks\startup\WireUpAttributedComponents.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewSubDepartments.cs" />
@@ -106,6 +113,8 @@
     <Compile Include="web\core\criteria\StringContainsNameOfCommand.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
     <Compile Include="web\core\DefaultFrontController.cs" />
+    <Compile Include="web\core\DefaultRequest.cs" />
+    <Compile Include="web\core\DefaultRequestFactory.cs" />
     <Compile Include="web\core\DefaultResponseEngine.cs" />
     <Compile Include="web\core\DefaultViewFactory.cs" />
     <Compile Include="web\core\DefaultViewFor.cs">
@@ -124,7 +133,6 @@
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\ResponseEngine.cs" />
     <Compile Include="web\core\stubs\StubFakeCommandSet.cs" />
-    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubViewRegistry.cs" />
     <Compile Include="web\core\ViewFor.cs" />
     <Compile Include="web\core\ViewFactory.cs" />
