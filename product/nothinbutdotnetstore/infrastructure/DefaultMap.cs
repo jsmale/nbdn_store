@@ -1,8 +1,10 @@
 using System;
 using nothinbutdotnetstore.infrastructure.containers;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.infrastructure
 {
+	[Singleton]
     public class DefaultMap : Map
     {
         Container container;

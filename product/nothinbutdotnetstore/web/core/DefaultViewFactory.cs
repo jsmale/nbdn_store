@@ -1,8 +1,10 @@
 using System;
 	using System.Web.Compilation;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.web.core
 {
+	[Singleton]
     public class DefaultViewFactory : ViewFactory
     {
         ViewRegistry view_registry;

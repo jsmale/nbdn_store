@@ -1,9 +1,11 @@
 using System;
 using System.Web;
 using nothinbutdotnetstore.infrastructure;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.web.core
 {
+	[Singleton]
     public class DefaultRequestFactory : RequestFactory
     {
         Map mapper;

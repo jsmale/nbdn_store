@@ -21,6 +21,7 @@ namespace nothinbutdotnetstore.tasks.startup
             Container container = new BasicContainer(factories);
             factories.Add(typeof(LoggerFactory),new AutoWiringFactory(null,container,typeof(TextWriterLoggerFactory)));
             IOC.factory_resolver = () => container;
+			  factories.Add(typeof(Container), new BasicDependencyFactory(() => container) );
         }
     }
 }

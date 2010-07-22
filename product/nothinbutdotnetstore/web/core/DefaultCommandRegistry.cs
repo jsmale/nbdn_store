@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.web.core
 {
+	[Singleton]
     public class DefaultCommandRegistry : CommandRegistry
     {
         IEnumerable<WebCommand> commands;

@@ -39,8 +39,9 @@ namespace nothinbutdotnetstore.tasks.startup
                 .Where(x => x.GetCustomAttributes(typeof(AttributeType), false).Length > 0);
             types.each(type =>
             {
+            	var attribute = (IoCAttribute)type.GetCustomAttributes(typeof (AttributeType), false).First();					
                 var interfaces = type.GetInterfaces();
-                var contract = (interfaces.Length > 0) ? interfaces[0] : type;
+					 var contract = attribute.ContractType ?? ((interfaces.Length > 0) ? interfaces[0] : type);
                 factories.Add(contract, factory(new GreedyConstructorSelectionStrategy(), IOC.get, type));
             });
         }

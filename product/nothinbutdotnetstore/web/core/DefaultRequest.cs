@@ -1,8 +1,10 @@
 using System.Collections.Specialized;
 using nothinbutdotnetstore.infrastructure;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.web.core
 {
+	[Singleton]
     public class DefaultRequest : Request
     {
         string raw_url;

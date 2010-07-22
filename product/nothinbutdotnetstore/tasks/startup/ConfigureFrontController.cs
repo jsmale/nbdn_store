@@ -33,6 +33,7 @@ namespace nothinbutdotnetstore.tasks.startup
         {
             var views = Assembly.Load("nothinbutdotnetstore.web.ui").GetTypes()
                 .Where(x => x.GetInterface("ViewFor`1") != null);
+			  add_to_factories<IEnumerable<Type>>(views);
 
             DefaultResponseEngine.context = () => HttpContext.Current;
             DefaultViewFactory.page_factory = BuildManager.CreateInstanceFromVirtualPath;

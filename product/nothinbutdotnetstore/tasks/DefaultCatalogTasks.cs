@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using nothinbutdotnetstore.data_access;
 using nothinbutdotnetstore.model;
 using System.Linq;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.tasks
 {
+	[Singleton]
 	public class DefaultCatalogTasks : CatalogTasks 
 	{
 		readonly Repository repository;
@@ -27,7 +29,7 @@ namespace nothinbutdotnetstore.tasks
 
 		public IEnumerable<Product> get_all_products_in(Department department)
 		{
-			throw new NotImplementedException();
+			return repository.get_all<Product>().Where(x => x.departmentId == department.id);
 		}
 	}
 }

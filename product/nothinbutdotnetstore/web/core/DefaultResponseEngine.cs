@@ -1,8 +1,10 @@
 using System;
 using System.Web;
+using nothinbutdotnetstore.tasks.startup;
 
 namespace nothinbutdotnetstore.web.core
 {
+	[Singleton]
     public class DefaultResponseEngine : ResponseEngine
     {
         ViewFactory view_factory;

@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using nothinbutdotnetstore.infrastructure.containers;
 using nothinbutdotnetstore.tasks;
+using nothinbutdotnetstore.tasks.startup;
 using nothinbutdotnetstore.web.application;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {
+	[Singleton(ContractType = typeof(IEnumerable<WebCommand>))]
     public class StubFakeCommandSet : IEnumerable<WebCommand>
     {
         IEnumerator IEnumerable.GetEnumerator()
