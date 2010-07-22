@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using nothinbutdotnetstore.data_access;
 using nothinbutdotnetstore.model;
+using System.Linq;
 
 namespace nothinbutdotnetstore.tasks
 {
@@ -13,10 +14,10 @@ namespace nothinbutdotnetstore.tasks
 		{
 			this.repository = repository;
 		}
-
+		
 		public IEnumerable<Department> get_all_main_departments()
 		{
-			return repository.get_all<Department>();
+			return repository.get_all<Department>().Where(x => x.parentId == null);
 		}
 
 		public IEnumerable<Department> get_all_sub_departments_in(Department department)
