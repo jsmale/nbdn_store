@@ -26,7 +26,8 @@ namespace nothinbutdotnetstore.specs.tasks
 			};
 
 			protected static Repository repository;
-			protected static IEnumerable<Department> result;
+			protected static IEnumerable<Department> departments;
+            protected static IEnumerable<Product> products;
 			protected static Department department1;
 			protected static Department department2;
 			protected static Department department3;
@@ -37,20 +38,46 @@ namespace nothinbutdotnetstore.specs.tasks
  		public class when_getting_all_the_main_departments : concern
  		{
  			Because b = () =>
- 				result = sut.get_all_main_departments();
+ 				departments = sut.get_all_main_departments();
 
  			It should_only_return_the_main_departments = () =>
- 				result.ShouldContainOnly(department1);
+ 				departments.ShouldContainOnly(department1);
  		}
 
         [Subject(typeof(DefaultCatalogTasks))]
  		public class when_getting_all_the_sub_departments : concern
 		{
 			Because b = () =>
-				result = sut.get_all_sub_departments_in(department1);
+				departments = sut.get_all_sub_departments_in(department1);
 
  			It should_only_return_the_sub_departments = () =>
- 				result.ShouldContainOnly(department2, department3);
+ 				departments.ShouldContainOnly(department2, department3);
+ 		}
+
+        [Subject(typeof(DefaultCatalogTasks))]
+ 		public class when_getting_all_the_products_in_a_department : concern {
+            Establish c = () =>
+			{
+				department1 = new Department { id = 1 };
+                product1 = new Product {departmentId = 1};
+                product2 = new Product {departmentId = 1};
+                product3 = new Product {departmentId = 2};
+
+				repository = the_dependency<Repository>();
+
+				repository.Stub(x => x.get_all<Product>())
+					.Return(new[] { product1, product2, product3 });
+			};
+
+            private Because b = () =>
+                products = sut.get_all_products_in(department1);
+
+ 			It should_only_return_the_products_in_a_department = () =>
+ 				products.ShouldContainOnly(product1, product2);
+
+            static Product product1;
+			static Product product2;
+			static Product product3;
  		}
  	}
  }
