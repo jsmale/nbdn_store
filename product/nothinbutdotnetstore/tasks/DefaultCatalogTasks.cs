@@ -22,7 +22,7 @@ namespace nothinbutdotnetstore.tasks
 
 		public IEnumerable<Department> get_all_sub_departments_in(Department department)
 		{
-            return repository.get_all<Department>().Where(x => x.parentId.HasValue);
+			return repository.get_all<Department>().Where(x => x.parentId == department.id);
 		}
 
 		public IEnumerable<Product> get_all_products_in(Department department)
