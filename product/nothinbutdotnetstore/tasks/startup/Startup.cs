@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore.tasks.startup
         {
             Start.by<ConfigureCoreServices>()
                 .followed_by<ConfigureFrontController>()
-                .finish_by<ConfigureServiceLayer>();
+                .finish_by<WireUpAttributedComponents>();
         }
     }
 }

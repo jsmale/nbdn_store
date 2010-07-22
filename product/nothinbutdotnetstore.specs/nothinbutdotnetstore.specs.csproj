@@ -80,6 +80,7 @@
     <Compile Include="infrastructure\AutoWiringFactorySpecs.cs" />
     <Compile Include="infrastructure\BasicContainerSpecs.cs" />
     <Compile Include="infrastructure\BasicDependencyFactorySpecs.cs" />
+    <Compile Include="infrastructure\DefaultMapSpecs.cs" />
     <Compile Include="infrastructure\DependencyCreationExceptionSpecs.cs" />
     <Compile Include="infrastructure\DependencyFactoryNotRegisteredExceptionSpecs.cs" />
     <Compile Include="infrastructure\FuncExtensions.cs" />
@@ -89,10 +90,12 @@
     <Compile Include="infrastructure\TextWriterLoggerFactorySpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
     <Compile Include="infrastructure\TextWriterLogSpecs.cs" />
+    <Compile Include="tasks\CatalogTasksSpecs.cs" />
     <Compile Include="tasks\StartupChainBuilderSpecs.cs" />
     <Compile Include="tasks\StartupCommandFactorySpecs.cs" />
     <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
+    <Compile Include="web\DefaultRequestSpecs.cs" />
     <Compile Include="web\DefaultViewRegistrySpecs.cs" />
     <Compile Include="web\StringContainsCommandNameSpecs.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
