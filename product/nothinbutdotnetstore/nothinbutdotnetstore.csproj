@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data_access\Repository.cs" />
     <Compile Include="infrastructure\BaseMapper.cs" />
     <Compile Include="infrastructure\containers\basic\AutoWiringFactory.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
