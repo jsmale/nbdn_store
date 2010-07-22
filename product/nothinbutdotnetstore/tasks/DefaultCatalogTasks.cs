@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.tasks
 		
 		public IEnumerable<Department> get_all_main_departments()
 		{
-			return repository.get_all<Department>().Where(x => !x.parentId.HasValue);
+			return repository.get_all<Department>().Where(x => x.parentId == null);
 		}
 
 		public IEnumerable<Department> get_all_sub_departments_in(Department department)
