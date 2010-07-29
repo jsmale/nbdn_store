@@ -51,6 +51,31 @@ namespace nothinbutdotnetstore.specs.infrastructure
 			private static TestClass result;
  		}
 
+		[Subject(typeof(NameValueMapper<TestClass>))]
+		public class when_mapping_from_a_name_value_collection_missing_a_property : concern
+		{
+			Establish e = () =>
+			{
+				nvc = new NameValueCollection()
+				{
+					{"Id", "5"},
+					{"Name", "Chewbacca"}
+				};
+
+			};
+
+			Because b = () =>
+			{
+				result = sut.map_from(nvc);
+			};
+
+			It should_leave_the_property_as_the_default_value = () =>
+				result.LastUpdated.ShouldEqual(DateTime.MinValue);
+
+			private static NameValueCollection nvc;
+			private static TestClass result;
+		}
+
 		public class TestClass
 		{
 			public int Id { get; set; }
