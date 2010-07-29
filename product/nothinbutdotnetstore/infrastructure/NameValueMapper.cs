@@ -12,8 +12,9 @@ namespace nothinbutdotnetstore.infrastructure
 			var props = typeof(Output).GetProperties();
 			foreach(var prop in props)
 			{
-				if (item[prop.Name] != null) {
-					prop.SetValue(results, Convert.ChangeType(item[prop.Name], prop.PropertyType), null);
+				var value = item[prop.Name];
+				if (value != null) {
+					prop.SetValue(results, Convert.ChangeType(value, prop.PropertyType), null);
 				}
 			}
 			return results;
