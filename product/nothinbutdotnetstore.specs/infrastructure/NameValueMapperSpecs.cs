@@ -8,7 +8,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
  {   
  	public class NameValueMapperSpecs
  	{
- 		public abstract class concern : Observes<Mapper<NameValueCollection,TestClass>,
+ 		public abstract class concern : Observes<Mapper<NameValueCollection, TestClass>,
  			NameValueMapper<TestClass>>
  		{
         
@@ -17,9 +17,38 @@ namespace nothinbutdotnetstore.specs.infrastructure
  		[Subject(typeof(NameValueMapper<TestClass>))]
  		public class when_mapping_from_a_name_value_collection : concern
  		{
+ 			Establish e = () =>
+			{
+				item = new TestClass()
+				{
+					Id = 5,
+					LastUpdated = new DateTime(1950, 2, 14),
+					Name = "Chewbacca"
+				}; 
+				nvc = new NameValueCollection()
+				{
+					{"Id", "5"},
+					{"LastUpdated", "02/14/1950"},
+					{"Name", "Chewbacca"}
+				};
+				
+			};
         
- 			It should_map_the_key_values_to_the_appropriate_properties_on_the_output_class = () =>        
+			Because b = () =>
+			{
+				result = sut.map_from(nvc);
+			};
+			            
+ 			It should_map_the_key_values_to_the_appropriate_properties_on_the_output_class = () =>
+			{
+				result.Id.ShouldEqual(item.Id);
+				result.LastUpdated.ShouldEqual(item.LastUpdated);
+				result.Name.ShouldEqual(item.Name);
+			};     
  				
+			private static NameValueCollection nvc;
+			private static TestClass item;
+			private static TestClass result;
  		}
 
 		public class TestClass
