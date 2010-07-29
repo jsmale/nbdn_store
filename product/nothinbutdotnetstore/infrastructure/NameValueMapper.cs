@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Reflection;
 
 namespace nothinbutdotnetstore.infrastructure
 {
@@ -7,7 +8,13 @@ namespace nothinbutdotnetstore.infrastructure
 	{
 		public Output map_from(NameValueCollection item)
 		{
-			throw new NotImplementedException();
+			var results = Activator.CreateInstance<Output>();
+			var props = typeof(Output).GetProperties();
+			foreach(var prop in props)
+			{
+				prop.SetValue(results, Convert.ChangeType(item[prop.Name], prop.PropertyType), null);
+			}
+			return results;
 		}
 	}
 }
