@@ -8,8 +8,7 @@ using nothinbutdotnetstore.web.application;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {
-	[Singleton(ContractType = typeof(IEnumerable<WebCommand>))]
-    public class StubFakeCommandSet : IEnumerable<WebCommand>
+	public class StubFakeCommandSet : IEnumerable<WebCommand>
     {
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -17,18 +16,13 @@ namespace nothinbutdotnetstore.web.core.stubs
         }
 
         public IEnumerator<WebCommand> GetEnumerator()
-        {           
-            yield return new DefaultWebCommand(x => !x.raw_command.Contains("?"),
+        {
+            yield return new DefaultWebCommand(x => x.raw_command.Contains(typeof(ViewMainDepartments).Name + ".store"),
                                                new ViewMainDepartments(
                                                    IOC.get.an_instance_of<ResponseEngine>(),
                                                    IOC.get.an_instance_of<CatalogTasks>()));
-            var random = new Random().Next(0, 2);
-            yield return new DefaultWebCommand(x => x.raw_command.Contains("?") && random == 0,
-                                               new ViewSubDepartments(
-                                                   IOC.get.an_instance_of<ResponseEngine>(),
-                                                   IOC.get.an_instance_of<CatalogTasks>()));
-            yield return new DefaultWebCommand(x => x.raw_command.Contains("?"),
-                                               new ViewProducts(
+            yield return new DefaultWebCommand(x => x.raw_command.Contains(typeof(ViewDepartmentChildren).Name + ".store"),
+                                               new ViewDepartmentChildren(
                                                    IOC.get.an_instance_of<ResponseEngine>(),
                                                    IOC.get.an_instance_of<CatalogTasks>()));
         }

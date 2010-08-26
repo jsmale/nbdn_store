@@ -18,11 +18,11 @@ namespace nothinbutdotnetstore.specs.web
                 department = new Department{id=42,name="Bob"};
 
             Because b = () =>
-                result = Url.for_command<ViewSubDepartments>().with_input_model(department)
+                result = Url.for_command<ViewDepartmentChildren>().with_input_model(department)
                     .with_parameter(x => x.id).with_parameter(x => x.name).get_url();
 
             It should_return_url_with_command_name_with_store_extension_with_params_in_query_string = () =>
-                result.ShouldEqual(string.Format("ViewSubDepartments.store?id={0}&name={1}", 
+                result.ShouldEqual(string.Format("ViewDepartmentChildren.store?id={0}&name={1}", 
                     department.id, department.name));
 
             static Department department;

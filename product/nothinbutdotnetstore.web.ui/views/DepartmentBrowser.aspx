@@ -1,7 +1,6 @@
 <%@ MasterType VirtualPath="Store.master" %>
 <%@ Page Language="C#" AutoEventWireup="True" 
 Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" MasterPageFile="Store.master" Codebehind="DepartmentBrowser.aspx.cs" %>
-<%@ Import Namespace="nothinbutdotnetstore.model" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.application" %>
 <%@ Import Namespace="nothinbutdotnetstore.web.core.helpers" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
@@ -14,9 +13,9 @@ Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" MasterPageFile="S
         %>	
         	<tr class="ListItem">
                 <td>                     
-                    <a href="<%=Url.for_command<ViewSubDepartments>()
+                    <a href="<%=Url.for_command<ViewDepartmentChildren>()
                        .with_input_model(department)
-                       .with_parameter(x => x.id).get_url() %>"><%=department.name%></a>
+                       .with_parameter(x => x.id)%>"><%=department.name%></a>
                 </td>
             </tr>
 	    <%

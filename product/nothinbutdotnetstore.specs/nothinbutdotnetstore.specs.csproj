@@ -96,6 +96,7 @@
     <Compile Include="tasks\StartupCommandFactorySpecs.cs" />
     <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
+    <Compile Include="web\CommandSetSpecs.cs" />
     <Compile Include="web\DefaultRequestSpecs.cs" />
     <Compile Include="web\DefaultViewRegistrySpecs.cs" />
     <Compile Include="web\StringContainsCommandNameSpecs.cs" />
@@ -107,8 +108,6 @@
     <Compile Include="web\ViewDepartmentChildrenSpecs.cs" />
     <Compile Include="web\ViewFactorySpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
-    <Compile Include="web\ViewProductSpecs.cs" />
-    <Compile Include="web\ViewSubDepartmentSpecs.cs" />
     <Compile Include="web\WebCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

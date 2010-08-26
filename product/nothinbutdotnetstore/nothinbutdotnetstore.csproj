@@ -102,12 +102,12 @@
     <Compile Include="tasks\startup\StartupCommand.cs" />
     <Compile Include="tasks\startup\StartupCommandFactory.cs" />
     <Compile Include="tasks\startup\WireUpAttributedComponents.cs" />
+    <Compile Include="web\application\CommandSet.cs" />
+    <Compile Include="web\application\DefaultCommandSet.cs" />
     <Compile Include="web\application\ViewDepartmentChildren.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
-    <Compile Include="web\application\ViewSubDepartments.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="web\application\InputElements.cs" />
-    <Compile Include="web\application\ViewProducts.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\Context.cs" />

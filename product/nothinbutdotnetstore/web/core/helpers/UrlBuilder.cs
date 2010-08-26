@@ -22,6 +22,11 @@ namespace nothinbutdotnetstore.web.core.helpers
         {
             return new UrlBuilder<Command, Model>(model);
         }
+
+        public override string ToString()
+        {
+            return get_url();
+        }
     }
 
     public class UrlBuilder<Command, Model> : UrlBuilder where Command : ApplicationCommand
@@ -76,6 +81,11 @@ namespace nothinbutdotnetstore.web.core.helpers
             var value = func.Compile().Invoke(model).ToString();
 
             return new UrlBuilder<Command, Model>(model, parameters, name, value);
+        }
+
+        public override string ToString()
+        {
+            return get_url();
         }
     }
 }
