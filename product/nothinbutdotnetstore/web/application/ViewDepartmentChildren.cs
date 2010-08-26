@@ -10,7 +10,7 @@ namespace nothinbutdotnetstore.web.application
         private readonly ResponseEngine responseEngine;
         private readonly CatalogTasks catalogTasks;
 
-        public ViewDepartmentChildren(ResponseEngine responseEngine, CatalogTasks catalogTasks )
+        public ViewDepartmentChildren(ResponseEngine responseEngine, CatalogTasks catalogTasks)
         {
             this.responseEngine = responseEngine;
             this.catalogTasks = catalogTasks;

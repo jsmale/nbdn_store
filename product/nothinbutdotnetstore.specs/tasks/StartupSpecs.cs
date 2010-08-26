@@ -21,9 +21,7 @@ namespace nothinbutdotnetstore.specs.tasks
                 Startup.run();
 
             It should_be_able_to_run_successfully = () =>
-            {
                 IOC.get.an_instance_of<FrontController>().ShouldBeAn<DefaultFrontController>();
-            };
 
         }
     }
