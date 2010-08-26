@@ -31,5 +31,10 @@ namespace nothinbutdotnetstore.tasks
 		{
 			return repository.get_all<Product>().Where(x => x.departmentId == department.id);
 		}
+
+	    public bool department_has_sub_departments(Department department)
+	    {
+	        throw new NotImplementedException();
+	    }
 	}
 }
