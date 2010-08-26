@@ -4,6 +4,6 @@ namespace nothinbutdotnetstore.model
     {
         public int id { get; set; }
         public string name { get; set; }
-		  public int? parentId { get; set; }
+		public int? parentId { get; set; }
     }
 }

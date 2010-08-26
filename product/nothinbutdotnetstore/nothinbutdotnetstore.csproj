@@ -90,7 +90,9 @@
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="infrastructure\Command.cs" />
     <Compile Include="infrastructure\ChainedCommand.cs" />
-    <Compile Include="tasks\DefaultCatalogTasks.cs" />
+    <Compile Include="..\..\..\..\Documents and Settings\DivecchioJ\Desktop\DefaultCatalogTasks.cs">
+      <Link>tasks\DefaultCatalogTasks.cs</Link>
+    </Compile>
     <Compile Include="tasks\startup\CommandExtensions.cs" />
     <Compile Include="tasks\startup\ConfigureCoreServices.cs" />
     <Compile Include="tasks\startup\ConfigureFrontController.cs" />
