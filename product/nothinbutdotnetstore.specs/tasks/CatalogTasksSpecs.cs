@@ -80,5 +80,61 @@ namespace nothinbutdotnetstore.specs.tasks
 			static Product product2;
 			static Product product3;
 		}
+
+        [Subject(typeof(DefaultCatalogTasks))]
+        public abstract class when_checking_if_department_has_subdepartments : concern
+        {
+            Establish c = () =>
+            {
+                department1 = new Department { id = 1 };
+                
+
+                repository = the_dependency<Repository>();
+
+                repository.Stub(x => x.get_all<Department>())
+                    .Return(departments);
+            };
+
+            Because b = () =>
+                result = sut.department_has_sub_departments(department1);
+
+            protected static bool result;
+        }
+
+        [Subject(typeof(DefaultCatalogTasks))]
+        public class when_department_has_subdepartments : when_checking_if_department_has_subdepartments
+        {
+            Establish c = () =>
+            {
+                departments = new[]
+                {
+                    new Department{parentId = 2},
+                    new Department{parentId = department1.id},
+                    new Department{parentId = 3},
+                    new Department{parentId = 4},
+                };
+            };
+
+            It should_return_true_if_any_department_has_the_department_as_its_parent = () =>
+                result.ShouldBeTrue();            
+        }
+
+        [Subject(typeof(DefaultCatalogTasks))]
+        public class when_department_does_not_have_subdepartments : when_checking_if_department_has_subdepartments
+        {
+            Establish c = () =>
+            {
+                departments = new[]
+                {
+                    new Department{parentId = 2},
+                    new Department{parentId = 5},
+                    new Department{parentId = 3},
+                    new Department{parentId = 4},
+                };
+            };
+
+            It should_return_true_if_any_department_has_the_department_as_its_parent = () =>
+                result.ShouldBeFalse();
+        }
 	}
 }

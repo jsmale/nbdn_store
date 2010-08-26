@@ -18,13 +18,15 @@ namespace nothinbutdotnetstore.web.application
 
         public void process(Request request)
         {
-            var hasSubDepartments = catalogTasks.department_has_sub_departments(request.map<Department>());
-            if(hasSubDepartments)
+            var department = request.map<Department>();
+            var hasSubDepartments = catalogTasks.department_has_sub_departments(department);
+            if (hasSubDepartments)
             {
-                responseEngine.display(catalogTasks.get_all_sub_departments_in(request.map<Department>()));
+                responseEngine.display(catalogTasks.get_all_sub_departments_in(department));
             }
-			else {
-            	responseEngine.display(catalogTasks.get_all_products_in(request.map<Department>()));
+			else 
+            {
+            	responseEngine.display(catalogTasks.get_all_products_in(department));
             }
         }
     }
