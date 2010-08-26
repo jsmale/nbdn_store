@@ -133,7 +133,7 @@ namespace nothinbutdotnetstore.specs.tasks
                 };
             };
 
-            It should_return_true_if_any_department_has_the_department_as_its_parent = () =>
+            It should_return_false_if_no_departments_have_the_department_as_its_parent = () =>
                 result.ShouldBeFalse();
         }
 	}
