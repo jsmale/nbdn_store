@@ -102,6 +102,7 @@
     <Compile Include="tasks\startup\StartupCommand.cs" />
     <Compile Include="tasks\startup\StartupCommandFactory.cs" />
     <Compile Include="tasks\startup\WireUpAttributedComponents.cs" />
+    <Compile Include="web\application\ViewDepartmentChildren.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewSubDepartments.cs" />
     <Compile Include="model\Product.cs" />

@@ -104,6 +104,7 @@
     <Compile Include="web\RawHandlerSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />
     <Compile Include="web\UrlHelperSpecs.cs" />
+    <Compile Include="web\ViewDepartmentChildrenSpecs.cs" />
     <Compile Include="web\ViewFactorySpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
     <Compile Include="web\ViewProductSpecs.cs" />
