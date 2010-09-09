@@ -1,4 +1,5 @@
 using nothinbutdotnetstore.tasks;
+using nothinbutdotnetstore.tasks.startup;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.web.application

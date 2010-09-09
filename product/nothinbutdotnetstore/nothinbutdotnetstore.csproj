@@ -133,7 +133,6 @@
     <Compile Include="web\core\RequestCriteria.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\ResponseEngine.cs" />
-    <Compile Include="web\core\stubs\StubFakeCommandSet.cs" />
     <Compile Include="web\core\ViewFor.cs" />
     <Compile Include="web\core\ViewFactory.cs" />
     <Compile Include="web\core\ViewRegistry.cs" />
