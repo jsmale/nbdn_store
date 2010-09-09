@@ -1,6 +1,7 @@
  using Machine.Specifications;
  using Machine.Specifications.DevelopWithPassion.Rhino;
  using nothinbutdotnetstore.infrastructure.containers;
+ using nothinbutdotnetstore.specs.utility;
  using nothinbutdotnetstore.web.application;
  using System.Linq;
  using nothinbutdotnetstore.web.core;
@@ -37,7 +38,7 @@ namespace nothinbutdotnetstore.specs.web
                 result = sut.ToArray();
 
             It should_contain_application_commands_in_same_namespace = () =>
-                result.Cast<dynamic>()
+                result.Select(x => new AccessPrivateWrapper(x)).Cast<dynamic>()
                     .Any(x => x.application_command.GetType() == typeof (ViewDepartmentChildren))
                     .ShouldBeTrue();
 
