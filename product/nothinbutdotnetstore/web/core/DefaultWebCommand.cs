@@ -3,7 +3,7 @@ namespace nothinbutdotnetstore.web.core
     public class DefaultWebCommand : WebCommand
     {
         RequestCriteria request_criteria;
-        public ApplicationCommand application_command;
+        ApplicationCommand application_command;
 
         public DefaultWebCommand(RequestCriteria request_criteria, ApplicationCommand application_command)
         {

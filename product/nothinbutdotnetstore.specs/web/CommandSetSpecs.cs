@@ -21,7 +21,7 @@ namespace nothinbutdotnetstore.specs.web
                 result = sut.ToArray();
 
             It should_contain_application_commands_in_same_namespace = () =>
-                result.Cast<DefaultWebCommand>()
+                result.Cast<dynamic>()
                     .Any(x => x.application_command.GetType() == typeof (ViewDepartmentChildren))
                     .ShouldBeTrue();
 
